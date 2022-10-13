@@ -1,0 +1,54 @@
+<%- include('../common/header')%>
+<%- include('../common/menu')%>
+
+<main class="mb-4">
+    <div class="bg-light p-5 mb-4">
+        <div class="container text-center">
+            <h1>Felps news</h1>
+            <h5>Sejam bem-vindos </h5>
+            <p>
+                Fique por dentro das ultimas notícias
+            </p>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 ">
+                <% for(let i = 0; i < noticias.length; i++)  { %>
+    
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                                <h5 class="card-title"> <%= noticias[i].titulo%> </h5>
+                                <p class="card-text"> <%= noticias[i].resumo%> </p>
+                                <p class="card-text"> <small class="text-muted"><%= noticias[i].data_criacao.toLocaleString('pt-br').split(' ').join (' às ')%>  </small></p>
+
+                                <a href="noticia?id_noticias=<%=noticias[i].id_noticias%>" class="btn btn-primary">Saiba mais</a>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+    
+            </div>
+    
+        </div>
+
+        <div class="d-flex">
+            <div class="container">         
+                <div class="d-flex justify-content-center mt-5">
+                    <a href="noticias" class=" btn btn-primary">Ver todas as noticias</a>
+                </div>      
+            </div>
+    
+            <div class="container">         
+                <div class="d-flex justify-content-center mt-5">
+                    <a href="/adicionarNoticias" class=" btn btn-primary">Criar noticia</a>
+                </div>      
+            </div>
+        </div>
+    </div>
+
+
+</main>
+
+<%- include('../common/footer')%>
